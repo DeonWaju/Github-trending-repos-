@@ -1,0 +1,43 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "fb8817b4a67d5c75309442a96f7bc477",
+    "entities": [
+      {
+        "tableName": "GithubUsers",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`total_count` INTEGER NOT NULL, `incomplete_results` INTEGER NOT NULL, `items` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "total_count",
+            "columnName": "total_count",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "incomplete_results",
+            "columnName": "incomplete_results",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "items",
+            "columnName": "items",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"fb8817b4a67d5c75309442a96f7bc477\")"
+    ]
+  }
+}

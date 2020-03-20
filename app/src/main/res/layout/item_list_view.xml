@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.softcom.ui.mvvm.GithubViewModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15sp"
+        android:background="@color/ghost_white"
+        android:elevation="8dp"
+        android:padding="10dp"
+        app:cardCornerRadius="3dp"
+        app:cardElevation="8dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:padding="15dp">
+
+            <ImageView
+                android:id="@+id/imageViewAvatar"
+                android:layout_width="@dimen/thumbnail"
+                android:layout_height="@dimen/thumbnail"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/row_padding"
+                android:src="@drawable/ic_placeholder"
+                tools:src="@drawable/ic_placeholder" />
+
+            <TextView
+                android:id="@+id/authorName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/imageViewAvatar"
+                android:fontFamily="sans-serif-medium"
+                android:text="@{viewModel.getName()}"
+                android:textColor="@color/repo_author"
+                android:textSize="15sp"
+                tools:text="Damola Olarewaju" />
+
+            <TextView
+                android:id="@+id/repoName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/authorName"
+                android:layout_toRightOf="@id/imageViewAvatar"
+                android:text="@{viewModel.getFullName()}"
+                android:textColor="@color/repo_name"
+                android:textSize="12sp"
+                tools:text="Title of Github repository " />
+
+            <TextView
+                android:id="@+id/starCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imageViewAvatar"
+                android:layout_marginLeft="50dp"
+                android:layout_toEndOf="@id/repoName"
+                android:layout_toRightOf="@id/repoName"
+                android:text="@{viewModel.getStargazersCount()}"
+                android:textColor="@color/repo_name"
+                android:textSize="12sp"
+                tools:text="Star: 3000" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>
